@@ -9,7 +9,7 @@ from difflib import SequenceMatcher
 HUGGINGFACE_API_KEY = "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"
 
 # Whisper model endpoint
-API_URL = "https://huggingface.co/openai/whisper-large-v2"
+API_URL = "https://api-inference.huggingface.co/models/openai/whisper-large-v2"
 st.set_page_config(page_title="🎙️ Speaking Practice with WAV Recorder")
 
 st.title("🎙️ Speaking Practice — Record and Check")
