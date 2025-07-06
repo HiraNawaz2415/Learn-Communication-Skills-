@@ -1,17 +1,23 @@
+import os
+from dotenv import load_dotenv
+
 import streamlit as st
 import streamlit.components.v1 as components
 import requests
 from difflib import SequenceMatcher
 
 # -----------------------------
-# ✅ Hugging Face API key
+# ✅ Load environment variables from .env
 # -----------------------------
-HUGGINGFACE_API_KEY = "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"
+load_dotenv()
+
+# ✅ Hugging Face API key from .env
+HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
 
 # Whisper model endpoint
 API_URL = "https://api-inference.huggingface.co/models/openai/whisper-large-v2"
-st.set_page_config(page_title="🎙️ Speaking Practice with WAV Recorder")
 
+st.set_page_config(page_title="🎙️ Speaking Practice with WAV Recorder")
 st.title("🎙️ Speaking Practice — Record and Check")
 
 # --------------------------------
@@ -139,9 +145,9 @@ if uploaded_file is not None:
     except requests.exceptions.RequestException as e:
         st.error(f"❌ Request failed: {e}")
 
-
-
-# Phonetics section
+# ------------------------------
+# 📚 Phonetics section
+# ------------------------------
 st.header("🔤 How to Pronounce English Sounds")
 st.write("Learn the 44 phonemes of English with these videos.")
 st.header("📚 English Phonemes — 44 Sounds")
@@ -166,30 +172,16 @@ st.write("""
 These videos are from trusted channels like BBC Learning English.
 """)
 
-
-st.write("Click the links below to watch pronunciation lessons:")
 st.subheader("🗣️ Short Vowels")
 st.video("https://www.youtube.com/watch?v=DIWkl9HcGy4")
 
 st.subheader("🗣️ Long Vowels")
 st.video("https://www.youtube.com/watch?v=RmxByBumXxg")
 
-
 st.subheader("🎵 Sing-along: Short Vowel Song")
 st.video("https://www.youtube.com/watch?v=RUSCz41aDug")
 
-
-st.write("""
-This table covers the **44 English phonemes** — grouped as **Short Vowels**, **Long Vowels**, **Diphthongs**, and **Consonants**.
-
-**Click ▶️ Play** to listen and practice each sound.
-""")
-
-# ------------------------------
-# 1️⃣ Short Vowels
-# ------------------------------
 st.subheader("🗣️ Short Vowels")
-
 short_vowels = [
     {"symbol": "/ɪ/", "example": "sit", "audio": "CS/sounds/sit.mp3"},
     {"symbol": "/e/", "example": "bed", "audio": "CS/sounds/bed.mp3"},
@@ -199,16 +191,11 @@ short_vowels = [
     {"symbol": "/ʊ/", "example": "put", "audio": "CS/sounds/put.mp3"},
     {"symbol": "/ə/", "example": "about", "audio": "CS/sounds/about.mp3"}
 ]
-
 for s in short_vowels:
     st.markdown(f"**{s['symbol']}** — *{s['example']}*")
     st.audio(s["audio"])
 
-# ------------------------------
-# 2️⃣ Long Vowels
-# ------------------------------
 st.subheader("🗣️ Long Vowels")
-
 long_vowels = [
     {"symbol": "/iː/", "example": "see", "audio": "CS/sounds/see.mp3"},
     {"symbol": "/ɑː/", "example": "car", "audio": "CS/sounds/car.mp3"},
@@ -216,16 +203,11 @@ long_vowels = [
     {"symbol": "/ɜː/", "example": "bird", "audio": "CS/sounds/bird.mp3"},
     {"symbol": "/uː/", "example": "blue", "audio": "CS/sounds/blue.mp3"}
 ]
-
 for s in long_vowels:
     st.markdown(f"**{s['symbol']}** — *{s['example']}*")
     st.audio(s["audio"])
 
-# ------------------------------
-# 3️⃣ Diphthongs
-# ------------------------------
 st.subheader("🗣️ Diphthongs")
-
 diphthongs = [
     {"symbol": "/eɪ/", "example": "day", "audio": "CS/sounds/day.mp3"},
     {"symbol": "/aɪ/", "example": "my", "audio": "CS/sounds/my.mp3"},
@@ -236,16 +218,11 @@ diphthongs = [
     {"symbol": "/eə/", "example": "air", "audio": "CS/sounds/air.mp3"},
     {"symbol": "/ʊə/", "example": "tour", "audio": "CS/sounds/tour.mp3"}
 ]
-
 for s in diphthongs:
     st.markdown(f"**{s['symbol']}** — *{s['example']}*")
     st.audio(s["audio"])
 
-# ------------------------------
-# 4️⃣ Consonants
-# ------------------------------
 st.subheader("🗣️ Consonants")
-
 consonants = [
     {"symbol": "/p/", "example": "pen", "audio": "CS/sounds/pen.mp3"},
     {"symbol": "/b/", "example": "back", "audio": "CS/sounds/back.mp3"},
@@ -270,12 +247,10 @@ consonants = [
     {"symbol": "/j/", "example": "yes", "audio": "CS/sounds/yes.mp3"},
     {"symbol": "/w/", "example": "we", "audio": "CS/sounds/we.mp3"}
 ]
-
 for s in consonants:
     st.markdown(f"**{s['symbol']}** — *{s['example']}*")
     st.audio(s["audio"])
 
 st.success("🎉 Practice every sound — click, listen and repeat to improve your pronunciation!")
-
 st.subheader("🎥 IPA Chart — Full Guide")
 st.video("https://www.youtube.com/watch?v=1kAPHyHd7Lo")
