@@ -2,17 +2,6 @@ import streamlit as st
 import streamlit.components.v1 as components
 import requests
 from difflib import SequenceMatcher
-
-# -----------------------------
-# ✅ Hugging Face API key
-HUGGINGFACE_API_KEY = "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"
-
-# Whisper model endpoint
-API_URL = "https://api-inference.huggingface.co/models/openai/whisper-large-v3"
-
-
-st.set_page_config(page_title="🎙️ Speaking Practice with WAV Recorder")
-
 st.title("🎙️ Speaking Practice — Record and Check")
 # --- CSS Styling ---
 st.markdown("""
@@ -50,6 +39,18 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+
+# -----------------------------
+# ✅ Hugging Face API key
+HUGGINGFACE_API_KEY = "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"
+
+# Whisper model endpoint
+API_URL = "https://api-inference.huggingface.co/models/openai/whisper-large-v3"
+
+
+st.set_page_config(page_title="🎙️ Speaking Practice with WAV Recorder")
+
+
 
 # --------------------------------
 # ✅ Dynamic Target Sentence Input
