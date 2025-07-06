@@ -14,6 +14,42 @@ API_URL = "https://api-inference.huggingface.co/models/openai/whisper-large-v3"
 st.set_page_config(page_title="🎙️ Speaking Practice with WAV Recorder")
 
 st.title("🎙️ Speaking Practice — Record and Check")
+# --- CSS Styling ---
+st.markdown("""
+    <style>
+    /* Main title styling */
+    .big-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: linear-gradient(135deg, #4b4b4b 0%, #bdbdbd 100%);
+    }
+
+    /* Subtitle styling */
+    .subtitle {
+        font-size: 1.2rem;
+        color: #555;
+    }
+
+    /* Footer styling */
+    .footer {
+        font-size: 0.8rem;
+        color: #888;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    /* Sidebar gradient background */
+    [data-testid="stSidebar"] {
+        background: linear-gradient(135deg, #4b4b4b 0%, #bdbdbd 100%);
+        color: white
+    }
+
+    /* Optional: make sidebar text white */
+    [data-testid="stSidebar"] * {
+        color: white;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 # --------------------------------
 # ✅ Dynamic Target Sentence Input
