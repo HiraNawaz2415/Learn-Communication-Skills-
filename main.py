@@ -47,7 +47,7 @@ st.markdown("""
 col1, col2 = st.columns([1, 5])
 
 with col1:
-    st.image("CS/assets/logo.png", width=100)
+    st.image("assets/logo.png", width=100)
 
 with col2:
     st.markdown('<div class="big-title">🗣️ Communication Skills Course</div>', unsafe_allow_html=True)
