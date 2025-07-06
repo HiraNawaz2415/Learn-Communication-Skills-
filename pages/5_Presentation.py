@@ -1,8 +1,6 @@
 import streamlit as st
 from fpdf import FPDF
-import requests
-from transformers import pipeline
-import os
+
 
 st.set_page_config(page_title="🎤 Presentation Practice Hub", layout="wide")
 
