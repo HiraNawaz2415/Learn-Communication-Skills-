@@ -5,10 +5,10 @@ from difflib import SequenceMatcher
 
 # -----------------------------
 # ✅ Hugging Face API key
-# -----------------------------
 HUGGINGFACE_API_KEY = "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"
 
-API_URL = "https://api-inference.huggingface.co/models/openai/whisper-base"
+# Whisper model endpoint
+API_URL = "https://api-inference.huggingface.co/models/openai/whisper-large-v3"
 
 
 st.set_page_config(page_title="🎙️ Speaking Practice with WAV Recorder")
